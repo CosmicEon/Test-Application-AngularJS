@@ -15,6 +15,7 @@ const init = (data) => {
     app.use(bodyParser.json());
 
     require('./routes/users.router').attachTo(app, data);
+    return app;
 };
 
 module.exports = { init };
