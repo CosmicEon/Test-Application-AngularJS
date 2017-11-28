@@ -4,7 +4,7 @@ const constants = require('./api/constants');
 
 dataBase.init(constants.dbString)
     .then((db) => {
-        return require('./api/data/users.data').init(db);
+        return require('./api/data/data').init(db);
     })
     .then((data) => {
         return require('./api/app').init(data);

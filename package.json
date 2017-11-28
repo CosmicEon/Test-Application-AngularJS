@@ -1,16 +1,26 @@
 {
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "serve": "live-server ./app"
   },
   "name": "test-web-application",
   "version": "1.0.0",
   "dependencies": {
+    "@types/connect-mongo": "0.0.34",
+    "@types/express-session": "^1.15.6",
+    "@types/passport": "^0.4.1",
+    "@types/passport-local": "^1.0.32",
     "body-parser": "^1.18.2",
+    "connect-mongo": "^2.0.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "mongodb": "^2.2.33"
+    "express-session": "^1.15.6",
+    "mongodb": "^2.2.33",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "live-server": "^1.2.0",
     "morgan": "^1.9.0"
   }
 }

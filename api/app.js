@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const init = (data) => {
     const app = express();
 
+    app.use('/app', express.static('app'));
+
     app.use(cors());
     app.use(morgan('dev', {
         skip: (req, res) => {
@@ -13,8 +15,12 @@ const init = (data) => {
         },
     }));
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+
+    require('./passport').applyTo(app, data);
 
     require('./routes/users.router').attachTo(app, data);
+
     return app;
 };
 

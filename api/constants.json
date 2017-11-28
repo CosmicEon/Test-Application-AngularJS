@@ -1,4 +1,5 @@
 {
     "port": 8080,
-    "dbString": "mongodb://localhost:27017/test-web-application"
+    "dbString": "mongodb://localhost:27017/test-web-application",
+    "secret": "NodeJS Secret Key"
 }

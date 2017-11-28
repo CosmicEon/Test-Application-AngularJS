@@ -1,20 +1,44 @@
 const usersController = (data) => {
-    const register = (req, res) => {
+    const register = (req, res, next) => {
+        const userData = req.body;
 
+        // data.users.findByNickname(userData)
+        //     .then((dbUser) => {
+        //         if (dbUser) {
+        //             res.redirect('/users/register');
+        //         }
+        //     })
+
+        data.users.register(userData)
+            .then((response) => {
+                res.status(200)
+                    .send(response);
+            })
+            .catch((error) => {
+                next(error);
+            });
     };
 
-    const login = (req, res) => {
+    // passport.js handles login
+    // const login = (req, res) => {
+    // };
 
-    };
+    const putDetails = (req, res) => {
+        const userData = req.body;
 
-    const getDetails = (req, res) => {
-
+        data.users.putDetails(userData)
+            .then((response) => {
+                res.status(200)
+                    .send(response);
+            })
+            .catch((error) => {
+                return res.json(error);
+            });
     };
 
     return {
         register,
-        login,
-        getDetails,
+        putDetails,
     };
 };
 
