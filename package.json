@@ -10,6 +10,7 @@
     "@types/express-session": "^1.15.6",
     "@types/passport": "^0.4.1",
     "@types/passport-local": "^1.0.32",
+    "angular": "^1.6.7",
     "body-parser": "^1.18.2",
     "connect-mongo": "^2.0.0",
     "cors": "^2.8.4",

@@ -1,0 +1,33 @@
+<h1>profile page</h1>
+<div class="container">
+    <form ng-submit="submit()">
+        <div class="form-group">
+            <label for="formControlNickname">Nickname</label>
+            <input type="text" class="form-nickname" id="formControlNickname" placeholder="nickname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="formControlPassword1">Password</label>
+            <input type="password" class="form-password" id="formControlPassword1" placeholder="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="formControlConfirmPassword">Confirm Password</label>
+            <input type="password" class="form-confirm-password" id="formControlConfirmPassword" placeholder="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="formControlPhone">Phone</label>
+            <input type="tel" class="form-phone" id="formControlPhone" placeholder="xxx-xxx-xxxx" required>
+        </div>
+
+        <div class="form-group">
+            <label for="formControlCountry">Select Country</label>
+            <select class="form-country" id="formControlCountry" ng-repeat="country in login.countries" required>
+                <option class="{{country.name}}">{{country.name}}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>

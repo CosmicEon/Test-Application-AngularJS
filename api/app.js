@@ -6,8 +6,6 @@ const morgan = require('morgan');
 const init = (data) => {
     const app = express();
 
-    app.use('/app', express.static('app'));
-
     app.use(cors());
     app.use(morgan('dev', {
         skip: (req, res) => {
