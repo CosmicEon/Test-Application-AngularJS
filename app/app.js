@@ -26,10 +26,41 @@ myApp.config(function ($locationProvider, $routeProvider) {
         .when('/profile', {
             templateUrl: 'user/profile/profile.template.html',
             controller: 'Profile.Controller',
+            resolve: {
+                logincheck: myApp.checkLoggedin,
+            },
         })
         .otherwise({ redirectTo: '/' });
 });
 
+myApp.controller('App.Controller', ['$scope', '$log', function ($scope, $log) {
+    $scope.logoutUser = function () {
+        $http.post('/logout')
+            .success(function () {
+                $rootScope.currentUser = null;
+                $location.url('/home');
+            });
+    };
+
+    const checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+        const deferred = $q.defer();
+
+        $http.get('/users/login').success(function (user) {
+            $rootScope.errorMessage = null;
+            // User is Authenticated
+            if (user !== '0') {
+                $rootScope.currentUser = user;
+                deferred.resolve();
+            } else { // User is not Authenticated
+                $rootScope.errorMessage = 'You need to log in.';
+                deferred.reject();
+                $location.url('/login');
+            }
+        });
+
+        return deferred.promise;
+    };
+}]);
 
 myApp.value('COUNTRIES', [
     { name: 'Bulgaria' },
