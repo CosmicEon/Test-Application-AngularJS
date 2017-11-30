@@ -4,6 +4,7 @@ const myApp = angular.module('myApp', [
     'Login.Module',
     'Register.Module',
     'Profile.Module',
+    'Home.Module',
 ]);
 
 myApp.config(function ($locationProvider, $routeProvider) {
@@ -11,29 +12,24 @@ myApp.config(function ($locationProvider, $routeProvider) {
 
     $routeProvider
         .when('/', {
-            templateUrl: 'home.template.html',
+            templateUrl: 'home/home.template.html',
             controller: 'Home.Controller',
         })
         .when('/login', {
-            templateUrl: 'login/login.template.html',
+            templateUrl: 'user/login/login.template.html',
             controller: 'Login.Controller',
         })
         .when('/register', {
-            templateUrl: 'register/register.template.html',
+            templateUrl: 'user/register/register.template.html',
             controller: 'Register.Controller',
         })
         .when('/profile', {
-            templateUrl: 'profile/profile.template.html',
+            templateUrl: 'user/profile/profile.template.html',
             controller: 'Profile.Controller',
         })
         .otherwise({ redirectTo: '/' });
 });
 
-myApp.controller('Home.Controller', ['$scope', '$log', function ($scope, $log) {
-    $scope.name = 'Jane Doe';
-    console.log($scope);
-    $log.log('test');
-}]);
 
 myApp.value('COUNTRIES', [
     { name: 'Bulgaria' },
