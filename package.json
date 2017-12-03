@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node server.js",
-    "serve": "live-server ./app"
+    "serve": "./node_modules/.bin/live-server ./app"
   },
   "name": "test-web-application",
   "version": "1.0.0",
